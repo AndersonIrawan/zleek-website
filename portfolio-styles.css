@@ -1,0 +1,127 @@
+.overlay-01 {
+    background-image: url(images/cover-freshipe.png);
+    background-size: cover;
+    opacity: 10%;
+    z-index: 0;
+}
+
+.overlay-02 {
+    background-image: url(images/covers-onboarder.png);
+    background-size: cover;
+    opacity: 10%;
+}
+
+.overlay-03 {
+    background-image: url(images/cover-loneliness.png);
+    background-size: cover;
+    opacity: 10%;
+}
+
+.overlay-04 {
+    background-image: url(images/cover-b-hive.png);
+    background-size: cover;
+    opacity: 10%;
+}
+
+.overlay-05 {
+    background-image: url(images/cover-mumu.png);
+    background-size: cover;
+    opacity: 10%;
+}
+
+body {
+    font-weight: 100;
+    font-style: normal;
+    background-color: var(--redmain);
+    color: var(--offwhite);
+    font-size: 1em;
+    overflow-x: hidden;
+  }
+
+.back-button {
+    text-decoration: underline;
+}
+
+.p-01 {
+
+    .categories {
+        padding-bottom: 5vh;
+    }
+
+    .title {
+        font-size: 2.5em;
+        margin-left: 0%;
+    }
+
+    .description {
+        text-align: justify;
+        padding-top: 8vh
+    }
+    
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .link {
+        color: inherit;
+        text-decoration: underline;
+        transition: 0.1s;
+    }
+
+    .link:hover {
+        color: var(--offwhite);
+        transition: 0.2s;
+    }
+
+    .pointers {
+        padding-top: 5vh;
+    }
+
+    .pointers p {
+        transition: 0.1s;
+    }
+
+    .pointers p:hover {
+        color: var(--offwhite);
+        transform: translateX(2%);
+        transition: 0.2s;
+    }
+
+    .p-spacing {
+        padding: 10vh 0 2vh 0;
+    }
+
+}
+
+@media screen and (max-width: 991px) {
+
+    .overlay-01,
+    .overlay-02,
+    .overlay-03 {
+        background-color: var(--redmain);
+        opacity: 100%;
+        background-image: none;
+    }
+
+    .p-01 {
+
+        text-align: justify;
+
+        .categories {
+            padding-top: 10%;
+            padding-bottom: 10%;
+        }
+
+        .title {
+            font-size: 3em;
+            line-height: 1;
+            text-align: left;
+        }
+
+        img {
+            width: 100%;
+        }
+
+    }
+}

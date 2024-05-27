@@ -1,0 +1,645 @@
+:root {
+  --redmain: #ee4244;
+  --offwhite: #f5f5fa;
+  --onyx: #131311;
+
+  --porto-top-padding: 3em;
+}
+
+html,
+a {
+  cursor: default;
+}
+
+body {
+  font-family: "museo-slab", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  background-color: var(--redmain);
+  color: var(--offwhite);
+  font-size: 1em;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.1s;
+}
+
+a:hover {
+  color: var(--offwhite);
+  transition: 0.2s;
+}
+
+h1 {
+  line-height: 0.5;
+}
+
+h3 {
+  font-size: 7em;
+}
+
+.container {
+  padding: 3em;
+}
+
+.mobile-view-only {
+  display: none;
+}
+
+.row {
+  z-index: 1;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0%;
+  }
+
+  to {
+    opacity: 100%;
+  }
+}
+
+.introduction {
+  font-weight: 500;
+  text-align: left;
+  animation-name: fade;
+  animation-duration: 2.5s;
+}
+
+.introduction-heading {
+  font-size: 2.7em;
+}
+
+.introduction-subheading {
+  line-height: 0.8;
+  letter-spacing: 0.2em;
+}
+
+.section-intro h1 {
+  font-size: 9em;
+  line-height: 0.9;
+  padding: 90vh 1vw 0.5vh 1vw;
+}
+
+.section-intro h2 {
+  font-size: 4em;
+  line-height: 1;
+  padding: 45vh 0vw 30vh 0vw;
+  color: var(--offwhite);
+  text-align: right;
+}
+
+.section-intro .svg {
+  display: block;
+}
+
+.inversed-bg {
+  color: var(--redmain);
+  background-color: var(--onyx);
+}
+
+/* Bootstrap Adjustments */
+.container {
+  padding: 2em;
+}
+
+/* Image Adjustments */
+img {
+  width: 90%;
+  position: relative;
+}
+
+/* Side Navigation Bar */
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  background-color: var(--onyx);
+  border-left: 2px solid var(--offwhite);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 4em;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 48px;
+  text-decoration: none;
+  font-size: 3em;
+  color: var(--offwhite);
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: var(--redmain);
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 3em;
+  margin-left: 50px;
+}
+
+.sidenav-button {
+  font-size: 2em;
+  cursor: pointer;
+  text-align: right;
+}
+
+.sidenav-button:hover {
+  transition: 0.3s;
+  color: var(--onyx);
+}
+
+/* Additional Fonts */
+
+.dax {
+  font-family: "ff-dax-compact-pro", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.haas {
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* Portfolio */
+
+.line {
+  width: 100%;
+  height: 0.05em;
+  background-color: var(--redmain);
+  position: relative;
+}
+
+.porto-link {
+  text-decoration: none;
+  /*cursor: default;
+  color: inherit;
+  pointer-events: none;
+  display: inline-block;*/
+}
+
+.porto {
+  width: 100%;
+  position: relative;
+  color: var(--redmain);
+  background-color: var(--onyx);
+  transition: 1s;
+  z-index: 1;
+  padding: var(--porto-top-padding) 1.5em 1em 1.5em;
+}
+
+.porto-underlay {
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.porto-overlay {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 0;
+  background-color: var(--redmain);
+  transition: 0.5s;
+  z-index: 0;
+}
+
+.porto:hover .porto-overlay {
+  height: 100%;
+  transition: 0.5s;
+}
+
+.porto img {
+  max-width: 20%;
+  opacity: 0%;
+  z-index: 2;
+  margin-left: auto;
+  margin-right: auto;
+  transform: scale(2.5) translateY(-40%) translateX(190%);
+}
+
+@keyframes enlarge {
+  from {
+    padding-top: var(--porto-top-padding);
+  }
+
+  to {
+    padding-top: 9em;
+  }
+}
+
+@keyframes shrink {
+  from {
+    padding-top: 9em;
+  }
+
+  to {
+    padding-top: var(--porto-top-padding);
+  }
+}
+
+.portfolio a:hover {
+  transition: 1s;
+  color: var(--offwhite);
+}
+
+.porto:hover {
+  transition: 1s;
+  color: var(--offwhite);
+  animation: enlarge 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.porto:hover .category {
+  background-color: transparent;
+  border: 1px solid var(--offwhite);
+  transition: 1s;
+}
+
+.porto:hover img {
+  animation: fade 1s;
+  animation-fill-mode: forwards;
+}
+
+.porto:not(:hover) {
+  animation-name: shrink;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.numbering {
+  line-height: 0.05;
+  opacity: 30%;
+  font-size: 2.5em;
+}
+
+.info {
+  text-align: right;
+  margin-left: 0%;
+}
+
+.category {
+  border-radius: 1.5em;
+  background-color: var(--redmain);
+  border: 1px solid var(--redmain);
+  color: var(--offwhite);
+  padding: 8px;
+  text-align: center;
+  transition: 1s;
+  margin-left: 0.5em;
+}
+
+h2 {
+  line-height: 0.8;
+  font-size: 4.5em;
+  font-weight: 600;
+  margin-left: 5%;
+}
+
+.porto h2,
+.porto img,
+.porto .numbering,
+.porto .info,
+.porto .title {
+  position: relative;
+  z-index: 1;
+}
+
+/* About */
+
+.about {
+  padding-top: 10vh;
+  background-color: var(--onyx);
+  color: var(--redmain);
+
+  .bottom {
+    text-align: center;
+
+    a {
+      text-decoration: underline;
+      color: inherit;
+      transition: 0.3s;
+    }
+
+    a:hover {
+      color: var(--offwhite);
+      transition: 0.5s;
+    }
+  }
+}
+
+.about img {
+  z-index: 1;
+  border: 2px solid var(--redmain);
+  border-collapse: separate;
+  padding: 4em 1em 4em 4em;
+}
+
+.about .row {
+  padding: 30vh 2em 2em 2em;
+}
+
+.about h4 {
+  font-size: 4.5em;
+  z-index: 2;
+  position: relative;
+  color: var(--offwhite);
+  padding-top: 10%;
+}
+
+.about h4,
+.about .h4-supp {
+  transform: translateX(-53%);
+  text-align: right;
+  line-height: 0.9;
+}
+
+.about h5 {
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+
+  font-size: 4em;
+  line-height: 0.9;
+  transition: 0.2s;
+}
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(150%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slide-right {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .l-slide {
+    animation: slide-left;
+    animation-duration: 1.5s;
+  }
+
+  .r-slide {
+    animation: slide-right;
+    animation-duration: 1.5s;
+  }
+}
+
+.l-idle-1 h5:hover,
+.l-idle-2 h5:hover {
+  transform: translateX(1%);
+}
+
+.quote {
+  font-family: "museo-slab", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+
+  font-size: 0.25em;
+  ;
+}
+
+.about .h5-supp {
+  padding-top: 20vh;
+}
+
+/* Footer */
+
+.footer {
+  padding: 5vh 0vh 0vh 0vh;
+  background-color: var(--onyx);
+
+  .main-content {
+    padding-top: 20vh;
+    padding-bottom: 20vh;
+  }
+
+  .bottom {
+    padding-top: 5vh;
+    text-align: center;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+  }
+
+  .pointers p{
+    transition: 0.1s;
+  }
+
+  .pointers p:hover {
+    color: var(--redmain);
+    transform: translateX(1%);
+    transition: 0.2s;
+  }
+
+  .line {
+    background-color: var(--offwhite);
+  }
+}
+
+/* Different Resolutions */
+
+@media screen and (max-width: 991px) {
+
+  .mobile-view-only {
+    display: block;
+    text-align: center;
+  }
+
+  .introduction {
+    padding-top: 20vh;
+  }
+
+  .introduction-heading {
+    font-size: 1.5em;
+  }
+
+  .introduction-subheading {
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.2em;
+    font-size: 0.6em;
+  }
+
+  .section-intro h1 {
+    font-size: 4em;
+    line-height: 0.9;
+    padding: 90vh 1vw 0.25vh 1vw;
+  }
+
+  .section-intro h2 {
+    font-size: 3em;
+    line-height: 1;
+    padding: 50vh 0vw 5vh 0vw;
+    color: var(--offwhite);
+    text-align: right;
+  }
+
+  .section-intro .svg {
+    display: hidden;
+    width: 80%;
+  }
+
+  /* Image Adjustments */
+  img {
+    padding-top: 2em;
+    display: block;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sidenav {
+    padding-top: 5em;
+    font-size: 2em;
+  }
+
+  .closebtn {
+    font-size: 2em;
+  }
+
+  .sidenav a {
+    font-size: 1em;
+  }
+
+  /* Portfolio */
+
+  .porto {
+    padding: 3em 1em 1em 1em;
+  }
+
+  .porto h2 {
+    font-size: 4em;
+  }
+
+  .porto:hover {
+    animation: none;
+  }
+
+  .porto:not(:hover) {
+    animation: none;
+  }
+
+  .porto:hover img {
+    animation: none;
+    /* Disable the animation for smaller screens */
+  }
+
+  .porto img {
+    max-width: 100%;
+    opacity: 100%;
+    padding-bottom: 5vh;
+    transform: none;
+  }
+
+  .numbering {
+    opacity: 50%;
+    font-size: 1.2em;
+  }
+
+  .info {
+    text-align: left;
+    font-size: inherit;
+    padding-top: 1em;
+  }
+
+  h2 {
+    line-height: 0.8;
+    font-size: 1.5em;
+    font-weight: 600;
+  }
+
+  h2,
+  .info {
+    margin-left: 2.5%;
+  }
+
+  .category {
+    font-size: 0.5em;
+  }
+
+  /* About */
+
+  .about {
+    font-size: 1em;
+  }
+
+  .about .row {
+    padding-top: 10vh;
+  }
+
+  .about .main {
+    padding: 10vh 2vw 1vh 2vw;
+  }
+
+  .main img {
+    padding: 60px;
+    width: 100%;
+    position: relative;
+  }
+
+  .about h4 {
+    font-size: 3em;
+    z-index: 2;
+    position: relative;
+    color: var(--offwhite);
+    padding-top: 10%;
+  }
+
+  .about h4,
+  .about .h4-supp {
+    transform: translateX(0%) translateY(-40%);
+  }
+
+  .about h5 {
+    font-size: 2.6em;
+    line-height: 0.9;
+  }
+
+  .about .h5-supp {
+    padding-top: 5vh;
+  }
+
+  @keyframes slide-left {
+    0% {
+      transform: translateX(100%);
+    }
+
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+  .about .quote {
+    font-size: 0.4em;
+  }
+
+}
