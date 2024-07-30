@@ -11,20 +11,43 @@ a {
   cursor: default;
 }
 
+.container, .container-fluid {
+  max-width: 100%;
+  box-sizing: border-box; /* This ensures padding is included in the element's width */
+}
+
+.row {
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
 body {
-  font-family: "museo-slab", sans-serif;
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
   font-weight: 100;
+  font-style: normal;
   font-style: normal;
   background-color: var(--redmain);
   color: var(--offwhite);
   font-size: 1em;
   overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.bg-switch {
+  background-color: var(--onyx);
+  transition: 0.5s;
 }
 
 a {
   text-decoration: none;
   color: inherit;
   transition: 0.1s;
+}
+
+.justified p {
+  text-align: justify;
 }
 
 a:hover {
@@ -52,9 +75,29 @@ h3 {
   z-index: 1;
 }
 
+@keyframes left-enter {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes right-enter {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
 @keyframes fade {
   from {
-    opacity: 0%;
+    opacity: 0;
   }
 
   to {
@@ -62,32 +105,29 @@ h3 {
   }
 }
 
-.introduction {
-  font-weight: 500;
-  text-align: left;
-  animation-name: fade;
+.introduction, .introduction-right {
   animation-duration: 2.5s;
 }
 
-.introduction-heading {
-  font-size: 2.7em;
+.introduction {
+  animation-name: left-enter;
 }
 
-.introduction-subheading {
-  line-height: 0.8;
-  letter-spacing: 0.2em;
+.introduction-right {
+  text-align: right;
+  animation-name: right-enter;
 }
 
 .section-intro h1 {
   font-size: 9em;
   line-height: 0.9;
-  padding: 90vh 1vw 0.5vh 1vw;
+  padding: 50vh 1vw 0.5vh 1vw;
 }
 
 .section-intro h2 {
   font-size: 4em;
   line-height: 1;
-  padding: 45vh 0vw 30vh 0vw;
+  padding: 50vh 0vw 30vh 0vw;
   color: var(--offwhite);
   text-align: right;
 }
@@ -98,7 +138,6 @@ h3 {
 
 .inversed-bg {
   color: var(--redmain);
-  background-color: var(--onyx);
 }
 
 /* Bootstrap Adjustments */
@@ -121,8 +160,7 @@ img {
   z-index: 2;
   top: 0;
   right: 0;
-  background-color: var(--onyx);
-  border-left: 2px solid var(--offwhite);
+  background-color: #111111;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 4em;
@@ -131,14 +169,34 @@ img {
 .sidenav a {
   padding: 8px 8px 8px 48px;
   text-decoration: none;
-  font-size: 3em;
+  font-size: 2em;
   color: var(--offwhite);
   display: block;
   transition: 0.3s;
 }
 
+.project_view a {
+  font-size: 1em;
+  display: block;
+  padding: 0 0 0 0;
+  text-decoration: underline;
+}
+
+.sideport img {
+  border-radius: 40px;
+}
+
+.sideport h2 {
+  color: var(--redmain);
+  font-size: 6em;
+}
+
 .sidenav a:hover {
   color: var(--redmain);
+}
+
+.sidenav .haas {
+  font-size: 4em;
 }
 
 .sidenav .closebtn {
@@ -158,6 +216,24 @@ img {
 .sidenav-button:hover {
   transition: 0.3s;
   color: var(--onyx);
+}
+
+/* Default styles */
+#mySidenav {
+  width: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+#main {
+  margin-left: 250px; /* default margin */
+  /* other styles */
 }
 
 /* Additional Fonts */
@@ -229,7 +305,7 @@ img {
   z-index: 2;
   margin-left: auto;
   margin-right: auto;
-  transform: scale(2.5) translateY(-40%) translateX(190%);
+  transform: scale(2.5) translateY(-50%) translateX(190%);
 }
 
 @keyframes enlarge {
@@ -304,10 +380,9 @@ img {
 }
 
 h2 {
-  line-height: 0.8;
+  line-height: 1;
   font-size: 4.5em;
   font-weight: 600;
-  margin-left: 5%;
 }
 
 .porto h2,
@@ -325,21 +400,6 @@ h2 {
   padding-top: 10vh;
   background-color: var(--onyx);
   color: var(--redmain);
-
-  .bottom {
-    text-align: center;
-
-    a {
-      text-decoration: underline;
-      color: inherit;
-      transition: 0.3s;
-    }
-
-    a:hover {
-      color: var(--offwhite);
-      transition: 0.5s;
-    }
-  }
 }
 
 .about img {
@@ -350,7 +410,7 @@ h2 {
 }
 
 .about .row {
-  padding: 30vh 2em 2em 2em;
+  padding: 0 2em 2em 2em;
 }
 
 .about h4 {
@@ -359,13 +419,6 @@ h2 {
   position: relative;
   color: var(--offwhite);
   padding-top: 10%;
-}
-
-.about h4,
-.about .h4-supp {
-  transform: translateX(-53%);
-  text-align: right;
-  line-height: 0.9;
 }
 
 .about h5 {
@@ -428,6 +481,16 @@ h2 {
   padding-top: 20vh;
 }
 
+/* Gallery */
+
+.gallery {
+  img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+  }
+}
+
 /* Footer */
 
 .footer {
@@ -450,11 +513,17 @@ h2 {
 
   }
 
-  .pointers p{
+  .pointers{
+    
+    text-align: right;
     transition: 0.1s;
+
+    p {
+      color: var(--redmain);
+    }
   }
 
-  .pointers p:hover {
+  .pointers h3:hover {
     color: var(--redmain);
     transform: translateX(1%);
     transition: 0.2s;
@@ -463,19 +532,27 @@ h2 {
   .line {
     background-color: var(--offwhite);
   }
+
+  h3 {
+    font-size: 2em;
+    line-height: 0.8;
+    color: var(--offwhite);
+    transition: 0.1s;
+  }
 }
 
 /* Different Resolutions */
 
 @media screen and (max-width: 991px) {
 
-  .mobile-view-only {
-    display: block;
+  .introduction {
     text-align: center;
+    padding-top: 20vh;
   }
 
-  .introduction {
-    padding-top: 20vh;
+  .introduction-right {
+    text-align: center;
+    padding-bottom: 20vh;
   }
 
   .introduction-heading {
@@ -492,13 +569,13 @@ h2 {
   .section-intro h1 {
     font-size: 4em;
     line-height: 0.9;
-    padding: 90vh 1vw 0.25vh 1vw;
+    padding: 10vh 1vw 0.25vh 1vw;
   }
 
   .section-intro h2 {
     font-size: 3em;
     line-height: 1;
-    padding: 50vh 0vw 5vh 0vw;
+    padding: 40vh 0vw 5vh 0vw;
     color: var(--offwhite);
     text-align: right;
   }
@@ -508,18 +585,20 @@ h2 {
     width: 80%;
   }
 
+  .sideport h2 {
+    font-size: 3em;
+  }
+
   /* Image Adjustments */
   img {
     padding-top: 2em;
     display: block;
-    width: 60%;
     margin-left: auto;
     margin-right: auto;
   }
 
   .sidenav {
     padding-top: 5em;
-    font-size: 2em;
   }
 
   .closebtn {
@@ -528,6 +607,19 @@ h2 {
 
   .sidenav a {
     font-size: 1em;
+    padding: 20px 8px 8px 48px;
+  }
+
+  .sidenav .haas {
+    font-size: 3em;
+  }
+
+  #mySidenav {
+    width: 100%;
+  }
+  
+  #main {
+    margin-left: 0; /* Adjust as needed */
   }
 
   /* Portfolio */
@@ -573,13 +665,8 @@ h2 {
 
   h2 {
     line-height: 0.8;
-    font-size: 1.5em;
+    font-size: 3em;
     font-weight: 600;
-  }
-
-  h2,
-  .info {
-    margin-left: 2.5%;
   }
 
   .category {
@@ -592,40 +679,14 @@ h2 {
     font-size: 1em;
   }
 
-  .about .row {
-    padding-top: 10vh;
-  }
-
   .about .main {
-    padding: 10vh 2vw 1vh 2vw;
+    padding: 0 2vw 1vh 2vw;
   }
 
   .main img {
     padding: 60px;
     width: 100%;
     position: relative;
-  }
-
-  .about h4 {
-    font-size: 3em;
-    z-index: 2;
-    position: relative;
-    color: var(--offwhite);
-    padding-top: 10%;
-  }
-
-  .about h4,
-  .about .h4-supp {
-    transform: translateX(0%) translateY(-40%);
-  }
-
-  .about h5 {
-    font-size: 2.6em;
-    line-height: 0.9;
-  }
-
-  .about .h5-supp {
-    padding-top: 5vh;
   }
 
   @keyframes slide-left {
@@ -636,10 +697,6 @@ h2 {
     100% {
       transform: translateX(0%);
     }
-  }
-
-  .about .quote {
-    font-size: 0.4em;
   }
 
 }

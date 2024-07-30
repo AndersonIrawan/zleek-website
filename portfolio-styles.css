@@ -29,17 +29,28 @@
     opacity: 10%;
 }
 
-body {
-    font-weight: 100;
-    font-style: normal;
-    background-color: var(--redmain);
-    color: var(--offwhite);
-    font-size: 1em;
-    overflow-x: hidden;
-  }
+.overlay-06 {
+    background-image: url(images/cover-votion-13.png);
+    background-size: cover;
+    opacity: 10%;
+}
 
 .back-button {
-    text-decoration: underline;
+    text-align: right;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+}
+
+.sticky-back {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
+    padding: 10px;
+    display: inline-block;
+    margin-top: 10px;
 }
 
 .p-01 {
@@ -98,7 +109,10 @@ body {
 
     .overlay-01,
     .overlay-02,
-    .overlay-03 {
+    .overlay-03,
+    .overlay-04,
+    .overlay-05,
+    .overlay-06 {
         background-color: var(--redmain);
         opacity: 100%;
         background-image: none;
